@@ -1,0 +1,56 @@
+.form-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    
+    .form-wrapper{
+       background-color: white;
+       padding: 30px 60px;
+       border-radius: 15px;
+       
+       .title{
+          text-align: center;
+          padding-bottom: 15px;
+       }
+    
+       form{
+          display: flex;
+          gap: 5px;
+          justify-content: center;
+          flex-direction: column;
+          width: fit-content;
+          
+          label{
+            font-weight: 600;
+          }
+
+          input{
+             border: none;
+             border-bottom: 1px solid rgb(65, 65, 65);
+          }
+          
+    .file-upload-label{
+      display: flex;
+      align-items: center;
+      font-size: small;
+     padding: 10px 0px;
+      cursor: pointer;
+    
+       #file-upload{
+             display: none;
+          }
+    }
+    
+    .submit-button{
+       padding: 5px;
+       background-color: black;
+       color: white;
+       border-radius: 30px;
+       margin: 5px;
+    }
+          
+       }
+    
+    }
+    }
