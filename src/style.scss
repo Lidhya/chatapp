@@ -34,7 +34,7 @@
       display: flex;
       align-items: center;
       font-size: small;
-     padding: 10px 0px;
+      padding: 10px 0px;
       cursor: pointer;
     
        #file-upload{
@@ -42,15 +42,72 @@
           }
     }
     
-    .submit-button{
-       padding: 5px;
-       background-color: black;
-       color: white;
-       border-radius: 30px;
-       margin: 5px;
-    }
+     .submit-button{
+        padding: 5px;
+        background-color: black;
+        color: white;
+        border-radius: 30px;
+        margin: 5px;
+     }
           
-       }
+    }
     
     }
+    }
+
+    .home{
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .container{
+         border-radius: 15px;
+         width: 65%;
+         height: 80%;
+         display: flex;
+         overflow: hidden;
+      }
+
+      .sidebar{
+         flex: 1;
+         border-right: 1px solid black;
+         background-color: #2E4756;
+         border-radius: 15px;
+         overflow: hidden;
+
+         .navbar{
+             display: flex;
+             justify-content: space-between;
+             align-items: center;
+             background-color: #253946;
+             padding: 15px;
+
+             h4{
+               color: white;
+             }
+
+             .user{
+               display: flex;
+               align-items: center;
+               gap: 5px;
+
+               button{
+               background-color: white;
+               padding: 3px;
+               border-radius: 5px;
+               font-weight: bold;
+             }
+
+             }
+             
+         }
+      }
+
+      .chat{
+         flex: 2;
+         border-radius: 15px;
+         overflow: hidden;
+         background-color: #3C7A89;
+      }
     }
