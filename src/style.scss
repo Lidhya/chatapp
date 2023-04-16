@@ -92,6 +92,12 @@
                align-items: center;
                gap: 5px;
 
+               img{
+                  width: 30px;
+                  height: 30px;
+                  border-radius: 50%;
+               }
+
                button{
                background-color: white;
                padding: 3px;
