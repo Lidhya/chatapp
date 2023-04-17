@@ -83,7 +83,7 @@
              justify-content: space-between;
              align-items: center;
              background-color: #253946;
-             padding: 15px;
+             padding: 10px;
 
              h4{
                color: white;
@@ -96,6 +96,8 @@
                align-content: center;
                gap: 5px;
                color: whitesmoke;
+               margin: 5px 0;
+
 
                img{
                   width: 30px;
@@ -134,6 +136,37 @@
                 &::placeholder {
                   color: lightgray;
                 }
+              }
+            }
+          }
+
+          .userChat {
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            cursor: pointer;
+    
+            &:hover {
+              background-color: #2f2d52;
+            }
+    
+            img {
+              width: 50px;
+              height: 50px;
+              border-radius: 50%;
+              object-fit: cover;
+            }
+    
+            .userChatInfo {
+              span {
+                font-size: 18px;
+                font-weight: 500;
+              }
+              p {
+                font-size: 14px;
+                color: lightgray;
               }
             }
           }
