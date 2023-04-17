@@ -4,8 +4,10 @@ import PropTypes from 'prop-types';
 
 const Search = () => {
     return (
-        <div>
-            
+        <div className='search'>
+            <form action="" className='searchForm'>
+            <input type='text' placeholder='Find a friend' />
+            </form>
         </div>
     );
 };

@@ -78,6 +78,8 @@
 
          .navbar{
              display: flex;
+             flex-wrap: wrap;
+             align-content: center;
              justify-content: space-between;
              align-items: center;
              background-color: #253946;
@@ -90,24 +92,51 @@
              .user{
                display: flex;
                align-items: center;
+               flex-wrap: wrap;
+               align-content: center;
                gap: 5px;
+               color: whitesmoke;
 
                img{
                   width: 30px;
                   height: 30px;
                   border-radius: 50%;
+                  object-fit: cover;
                }
 
                button{
-               background-color: white;
-               padding: 3px;
                border-radius: 5px;
-               font-weight: bold;
+               background: #253946;
+               box-shadow:  20px 20px 60px #1f303c,
+             -20px -20px 60px #2b4251;
+               padding: 5px;
+               font-weight: lighter;
+               cursor: pointer;
+               color: gray;
              }
 
              }
              
          }
+
+         .search {
+            border-bottom: 1px solid gray;
+    
+            .searchForm {
+              padding: 10px;
+    
+              input {
+                background-color: transparent;
+                border: none;
+                color: white;
+                outline: none;
+    
+                &::placeholder {
+                  color: lightgray;
+                }
+              }
+            }
+          }
       }
 
       .chat{
