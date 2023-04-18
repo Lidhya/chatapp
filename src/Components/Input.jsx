@@ -1,11 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-
+import SendRoundedIcon from '@mui/icons-material/SendRounded';
+import ImageRoundedIcon from '@mui/icons-material/ImageRounded';
+import AttachFileRoundedIcon from '@mui/icons-material/AttachFileRounded';
 
 const Input = () => {
     return (
-        <div>
-            
+        <div className='input'>
+            <input type="text" placeholder='Type something...' />
+            <div>
+                <AttachFileRoundedIcon/>
+                <ImageRoundedIcon/>
+                <SendRoundedIcon/>
+            </div>
         </div>
     );
 };
