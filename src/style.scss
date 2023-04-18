@@ -84,6 +84,7 @@
              align-items: center;
              background-color: #253946;
              padding: 10px;
+             min-height: 50px;
 
              h4{
                color: white;
@@ -177,5 +178,33 @@
          border-radius: 15px;
          overflow: hidden;
          background-color: #3C7A89;
+
+         .chatInfo {
+            background-color: #2E4756;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px;
+            color: lightgray;
+          }
+    
+          .chatIcons {
+            display: flex;
+            gap: 10px;
+    
+            img {
+              height: 24px;
+              cursor: pointer;
+            }
+          }
+
+          .messages{
+            padding: 10px;
+            height: calc(100% - 111px);
+          }
+          .input{
+            height: 50px;
+            background-color: white;
+          }
       }
     }
