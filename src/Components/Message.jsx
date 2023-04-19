@@ -1,9 +1,9 @@
 import React from 'react';
 import user1 from "../assests/pexels-gilberto-olimpio-3686216.jpg"
 
-const Message = () => {
+const Message = ({classname}) => {
     return (
-      <div className="message">
+      <div className={`message ${classname && "owner"}`}>
         <div className="messageInfo">
         <img src={user1} alt="user" />
         <span>just now</span>
