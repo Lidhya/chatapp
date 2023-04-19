@@ -8,13 +8,11 @@ const Input = () => {
         <div className='input'>
             <input type="text" placeholder='Type something...' />
             <div className='icons'>
-                <div>
+                <div className='attach-image-icon'>
                 <AttachFileRoundedIcon/>
                 <ImageRoundedIcon/>
                 </div>
-                <div className='sendBtn'>
-                <SendRoundedIcon className='sendIcon'/>
-                </div>
+                <button><SendRoundedIcon className='sendIcon'/></button>
             </div>
         </div>
     );
