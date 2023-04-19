@@ -7,10 +7,14 @@ const Input = () => {
     return (
         <div className='input'>
             <input type="text" placeholder='Type something...' />
-            <div>
+            <div className='icons'>
+                <div>
                 <AttachFileRoundedIcon/>
                 <ImageRoundedIcon/>
-                <SendRoundedIcon/>
+                </div>
+                <div className='sendBtn'>
+                <SendRoundedIcon className='sendIcon'/>
+                </div>
             </div>
         </div>
     );
