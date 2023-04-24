@@ -41,7 +41,15 @@ const Register = () => {
                           email,
                           photoURL: downloadURL,
                         })
-                          .then(() => console.log("success"))
+                          .then(() => {
+                            setDoc(doc(db, "userChat", userCredential.user.uid),{})
+                            .then(() => {
+                              console.log("success")
+                            }).catch((error) => {
+                              setErr(errMessage);
+                              console.log(error.message);
+                            });
+                          })
                           .catch((error) => {
                             setErr(errMessage);
                             console.log(error.message);
