@@ -1,17 +1,22 @@
 import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { auth, storage, db } from "../firebase";
 import { setDoc, doc } from "firebase/firestore";
 import "../style.scss";
 import ImageIcon from "@mui/icons-material/Image";
+import { CircularProgress } from "@mui/material";
 
 const Register = () => {
   const [err, setErr] = useState("");
+  const [loader, setLoader] = useState(false)
+  const navigate = useNavigate()
   const errMessage = "Something went wrong";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoader(true)
 
     const firstName = e.target[0]?.value? e.target[0].value : null ;
     const email = e.target[1]?.value? e.target[1].value : null;
@@ -44,34 +49,40 @@ const Register = () => {
                           .then(() => {
                             setDoc(doc(db, "userChat", userCredential.user.uid),{})
                             .then(() => {
-                              console.log("success")
+                              navigate("/")
                             }).catch((error) => {
                               setErr(errMessage);
+                              setLoader(false)
                               console.log(error.message);
                             });
                           })
                           .catch((error) => {
                             setErr(errMessage);
+                            setLoader(false)
                             console.log(error.message);
                           });
                       })
                       .catch((error) => {
                         console.log(error.message);
                         setErr(errMessage);
+                        setLoader(false)
                       });
                   })
                   .catch((error) => {
                     console.log(error.message);
                     setErr(errMessage);
+                    setLoader(false)
                   });
               })
               .catch((error) => {
                 console.log(error.message);
                 setErr(errMessage);
+                setLoader(false)
               });
           })
           .catch((error) => {
             setErr(errMessage);
+            setLoader(false)
             const errorMessage = error.message;
             console.log(errorMessage);
           });
@@ -87,6 +98,7 @@ const Register = () => {
           break;   
           default: setErr(errMessage);
         }
+    setLoader(false)
       }
     } catch (error) {
       console.log(error.message);
@@ -110,8 +122,10 @@ const Register = () => {
             Upload Profile Picture
             <input type="file" name="file-upload" id="file-upload" />
           </label>
-          <input className="submit-button" type="submit" />
-          <p>Already have an account? Login</p>
+          <button className="submit-button" type="submit" >
+           {loader? <CircularProgress color="secondary" size={20}/> : "Submit"} 
+            </button>
+          <p>Already have an account? <Link to={"/login"}>Login</Link></p>
         </form>
       </div>
     </div>
