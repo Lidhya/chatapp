@@ -27,8 +27,8 @@ const ProtectedRoute = ({children})=>{
       <Routes>
         <Route path="/">
           <Route index element={<ProtectedRoute><Home/></ProtectedRoute>}></Route>
-          <Route path="register" element={<Register/>}></Route>
-          <Route path="login" element={<Login/>}></Route>
+          <Route path="register" element={currentUser? <Navigate to={"/"}/> : <Register/>}></Route>
+          <Route path="login" element={currentUser? <Navigate to={"/"}/> : <Login/>}></Route>
         </Route>
       </Routes>
     </BrowserRouter>
