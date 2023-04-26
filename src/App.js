@@ -7,8 +7,12 @@ import {
   Routes,
 } from "react-router-dom";
 import "./style.scss";
+import { useContext } from "react";
+import { AuthContext } from "./Context/AuthContext";
 
 function App() {
+  const {currentUser} = useContext(AuthContext)
+  console.log(currentUser);
   return (
     <BrowserRouter>
       <Routes>
