@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import user1 from "../assests/pexels-gilberto-olimpio-3686216.jpg"
 import { signOut } from 'firebase/auth';
 import { auth } from '../firebase';
 import { AuthContext } from '../Context/AuthContext';

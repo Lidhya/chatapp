@@ -6,7 +6,6 @@ import { auth, storage, db } from "../firebase";
 import { setDoc, doc } from "firebase/firestore";
 import "../style.scss";
 import ImageIcon from "@mui/icons-material/Image";
-import { CircularProgress } from "@mui/material";
 
 const Register = () => {
   const [err, setErr] = useState("");
