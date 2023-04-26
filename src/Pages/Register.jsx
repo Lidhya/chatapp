@@ -10,13 +10,13 @@ import { CircularProgress } from "@mui/material";
 
 const Register = () => {
   const [err, setErr] = useState("");
-  const [loader, setLoader] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
   const navigate = useNavigate()
   const errMessage = "Something went wrong";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoader(true)
+    setSubmitting(true)
 
     const firstName = e.target[0]?.value? e.target[0].value : null ;
     const email = e.target[1]?.value? e.target[1].value : null;
@@ -36,13 +36,13 @@ const Register = () => {
                   .then(async (downloadURL) => {
                     console.log("File available at", downloadURL);
                     updateProfile(userCredential.user, {
-                      firstName,
+                      displayName: firstName,
                       photoURL: downloadURL,
                     })
                       .then(() => {
                         setDoc(doc(db, "users", userCredential.user.uid), {
                           uid: userCredential.user.uid,
-                          firstName,
+                          displayName: firstName,
                           email,
                           photoURL: downloadURL,
                         })
@@ -52,37 +52,37 @@ const Register = () => {
                               navigate("/")
                             }).catch((error) => {
                               setErr(errMessage);
-                              setLoader(false)
+                              setSubmitting(false)
                               console.log(error.message);
                             });
                           })
                           .catch((error) => {
                             setErr(errMessage);
-                            setLoader(false)
+                            setSubmitting(false)
                             console.log(error.message);
                           });
                       })
                       .catch((error) => {
                         console.log(error.message);
                         setErr(errMessage);
-                        setLoader(false)
+                        setSubmitting(false)
                       });
                   })
                   .catch((error) => {
                     console.log(error.message);
                     setErr(errMessage);
-                    setLoader(false)
+                    setSubmitting(false)
                   });
               })
               .catch((error) => {
                 console.log(error.message);
                 setErr(errMessage);
-                setLoader(false)
+                setSubmitting(false)
               });
           })
           .catch((error) => {
             setErr(errMessage);
-            setLoader(false)
+            setSubmitting(false)
             const errorMessage = error.message;
             console.log(errorMessage);
           });
@@ -98,7 +98,7 @@ const Register = () => {
           break;   
           default: setErr(errMessage);
         }
-    setLoader(false)
+    setSubmitting(false)
       }
     } catch (error) {
       console.log(error.message);
@@ -122,8 +122,8 @@ const Register = () => {
             Upload Profile Picture
             <input type="file" name="file-upload" id="file-upload" />
           </label>
-          <button className="submit-button" type="submit" >
-           {loader? <CircularProgress color="secondary" size={20}/> : "Submit"} 
+          <button className="submit-button" type="submit" disabled={submitting} >
+           {submitting? "Loading..." : "Submit"} 
             </button>
           <p>Already have an account? <Link to={"/login"}>Login</Link></p>
         </form>
