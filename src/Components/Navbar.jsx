@@ -5,13 +5,14 @@ import { auth } from '../firebase';
 
 
 const Navbar = () => {
+    const handleLogout= () => signOut(auth) 
     return (
         <div className='navbar'>
             <h4>MyChatApp</h4>
             <div className='user'>
             <img src={user1} alt="user" />
             <p>user</p>
-            <button onClick={signOut(auth)}>Logout</button>
+            <button onClick={handleLogout}>Logout</button>
             </div>
         </div>
     );
