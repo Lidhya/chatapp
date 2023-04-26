@@ -145,6 +145,19 @@
           }
         }
       }
+
+      .userChat {
+        display: flex;
+        align-items: center;
+        gap: 3px;
+
+        img {
+          border-radius: 50%;
+          height: 30px;
+          width: 30px;
+          object-fit: cover;
+        }
+      }
     }
 
     .userChat {
