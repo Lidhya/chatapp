@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Navbar from './Navbar';
 import Search from './Search';
 import Chats from './Chats';
