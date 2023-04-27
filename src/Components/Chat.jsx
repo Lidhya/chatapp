@@ -1,18 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Messages from './Messages'; 
 import Input from './Input'; 
-import user1 from "../assests/pexels-gilberto-olimpio-3686216.jpg"
 import VideocamIcon from '@mui/icons-material/Videocam';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import { ChatContext } from '../Context/ChatContext';
 
 const Chat = () => {
+  const {data}= useContext(ChatContext)
     return (
         <div className='chat'>
             <div className="chatInfo">
               <div className='userChat'>
-              <img src={user1} alt="user" />
-              <span>user name</span>
+              <img src={data.user.photoURL} alt="user" />
+              <span>{data.user.displayName}</span>
         </div>
         <div className="chatIcons">
           <VideocamIcon/>
