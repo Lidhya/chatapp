@@ -12,12 +12,14 @@ import {
 } from "firebase/firestore";
 import { db } from "../firebase";
 import { AuthContext } from "../Context/AuthContext";
+import { ChatContext } from "../Context/ChatContext";
 
 const Search = () => {
   const [userName, setUserName] = useState("");
   const [user, setUser] = useState(null);
   const [err, setErr] = useState(null);
   const { currentUser } = useContext(AuthContext);
+  const {dispatch}= useContext(ChatContext)
   const errMessage = "something went wrong"
 
   useEffect(() => {
@@ -89,6 +91,8 @@ const Search = () => {
                 console.log(error.message);
                 setErr(errMessage);
               });
+          }else{
+            dispatch({type:"CHANGE_USER", payload: user})
           }
         })
         .catch((error) => {
@@ -117,7 +121,7 @@ const Search = () => {
       </div>
       {err && <p className="userChatInfo">{err}</p>}
       {user && (
-        <div className="userChat" onClick={handleSelect}>
+        <div className="userChat" onClick={()=>handleSelect()}>
           <img src={user.photoURL} alt="" />
           <div className="userChatInfo">
             <span>{user.displayName}</span>
