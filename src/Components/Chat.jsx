@@ -12,7 +12,7 @@ const Chat = () => {
         <div className='chat'>
             <div className="chatInfo">
               <div className='userChat'>
-              <img src={data.user.photoURL} alt="user" />
+            {data.user?.photoURL && <img src={data.user.photoURL} alt="user" />}  
               <span>{data.user.displayName}</span>
         </div>
         <div className="chatIcons">
