@@ -254,6 +254,17 @@
       &::-webkit-scrollbar-thumb:hover {
         background: #555;
       }
+      div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        p {
+          font-size: 30px;
+          text-align: center;
+          color: #2f616d;
+        }
+      }
 
       .message {
         display: flex;
