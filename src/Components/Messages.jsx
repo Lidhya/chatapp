@@ -26,7 +26,7 @@ const Messages = () => {
       {messages[0]? messages.map((m) => (
         <Message message={m} key={m.id} />
       )):
-     <div> <p>Start a converstation</p></div>
+     <div className="start"> <p>Start a converstation</p></div>
       }
     </div>
   );
